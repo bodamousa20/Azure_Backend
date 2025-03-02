@@ -56,12 +56,13 @@ public class ImageService implements IImageService {
                 image.setFileType(file.getContentType());
                 image.setImage(new SerialBlob(file.getBytes()));
                 image.setProduct(currentProduct);
-
+            
                 // Save the image to generate an ID
+                String domain = "https://ecommeracebackabdo-hrhbbubqaba9e7et.uaenorth-01.azurewebsites.net/" ;
                 Image savedImage = imageRepository.save(image);
 
                 // Set the correct download URL using the generated ID
-                String downloadUrl = "/api/v1/images/download/" + savedImage.getId();
+                String downloadUrl = domain + savedImage.getId();
                 savedImage.setDownloadUrl(downloadUrl);
                 savedImage = imageRepository.save(savedImage);
 
