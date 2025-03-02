@@ -64,7 +64,7 @@ public class ProductService implements IProductService {
         image.setProduct(product);
         Image savedImage =  imageRepository.save(image);
 
-        String downloadImage = "http://192.168.1.7:8080/api/v1/images/download/"+image.getId();
+        String downloadImage = "https://backendecommerace-bsgsgjeqe8gabda3.uaenorth-01.azurewebsites.net/api/v1/images/download/"+image.getId();
         savedImage.setDownloadUrl(downloadImage);
 
         product.setImage(savedImage);
